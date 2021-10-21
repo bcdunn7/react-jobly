@@ -1,0 +1,22 @@
+.NavBar {
+    background-color: rgb(241, 233, 241);
+    padding: 15px;
+    box-shadow: 0px 1px 1px rgb(155, 37, 155);
+}
+
+.NavBar-Logo-Stack a {
+    text-decoration: none;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.NavBar-NavLinks a:hover {
+    color: rgb(155, 37, 155);
+    background-color: rgb(250, 210, 250);
+}
+
+.NavBar a.active {
+    color: white;
+    background-color: rgb(214, 112, 214);
+}

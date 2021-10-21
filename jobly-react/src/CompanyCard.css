@@ -1,0 +1,9 @@
+.CompanyCard {
+    margin: 20px;
+    background-color: rgb(245, 245, 245);
+}
+
+.CompanyCard-image {
+    max-height: 40px;
+    max-width: 40px;
+}
