@@ -12,9 +12,6 @@ const NavBar = () => {
             <ThemeProvider theme={theme}>
                 <Stack justifyContent="space-between" direction="row">
                     <Stack className="NavBar-Logo-Stack" justifyContent="center">
-                        {/* <Button color="primary" variant="text" component={Link} to="/">
-                            Jobly
-                        </Button> */}
                         <Link to="/">Jobly</Link>
                     </Stack>
                     <Stack className="NavBar-NavLinks" spacing={2} direction="row">

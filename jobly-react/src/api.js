@@ -43,11 +43,29 @@ class JoblyApi {
     return res.company;
   }
 
-  /** Get all companies */
+  /** Get all companies
+   *  With filtering:
+   *     - name (search for similar case-insensitve names)
+   */
 
-  static async getCompanies() {
-    let res = await this.request('companies')
+  static async getCompanies(filter) {
+    let requestString = 'companies'
+    if (filter && filter.name) {
+      requestString += '?name=' + filter.name;
+    }
+    let res = await this.request(requestString)
     return res.companies;
+  }
+
+  /** Get all jobs */
+
+  static async getJobs(filter) {
+    let requestString = 'jobs'
+    if (filter && filter.name) {
+      requestString += '?title=' + filter.name;
+    }
+    let res = await this.request(requestString)
+    return res.jobs;
   }
 
   // obviously, you'll add a lot here ...

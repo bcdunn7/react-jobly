@@ -1,15 +1,16 @@
-import { Card, CardContent, CardHeader, CardActions, Button, Avatar } from '@mui/material'
+import { Card, CardContent, CardHeader, Button, Avatar } from '@mui/material'
 import { red, orange, blue, purple, green } from '@mui/material/colors';
 import './CompanyCard.css'
 import theme from './MaterialUITheme';
 import { ThemeProvider } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 const CompanyCard = ({ company }) => {
     const colorOptions = [red[500], orange[500], blue[500], purple[500], green[500]]
 
     return (
         <ThemeProvider theme={theme}>
-            <Card className="CompanyCard">
+            <Card className="CompanyCard" style={{ backgroundColor: '#f5f2f7'}}>
                 <CardHeader
                     titleTypographyProps={{fontSize: 'h6.fontSize'}}
                     className="CompanyCard-header"
@@ -22,7 +23,7 @@ const CompanyCard = ({ company }) => {
                     }
                     title={company.name}
                     action={
-                        <Button color="primary" variant="contained">Apply</Button>
+                        <Button color="primary" variant="contained" component={Link} to={`/companies/${company.handle}`}>View Jobs</Button>
                     }
                 />
                 <CardContent>

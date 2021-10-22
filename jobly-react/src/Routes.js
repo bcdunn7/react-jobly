@@ -15,7 +15,7 @@ const Routes = () => {
             <Route exact path='/login'><LoginForm/></Route>
             <Route exact path='/signup'><SignupForm/></Route>
             <Route exact path='/companies'><Comapnies/></Route>
-            <Route exact path='/companies/:company'><Company/></Route>
+            <Route exact path='/companies/:name'><Company/></Route>
             <Route exact path='/jobs'><Jobs/></Route>
             <Route exact path='/profile'><ProfileForm/></Route>
             <Route><NotFound/></Route>
