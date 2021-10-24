@@ -39,18 +39,27 @@ const Signup = () => {
             >
                 {({ isSubmitting }) => (
                     <Form>
-                        <Field type="text" name="username" />
+                        <label htmlForm="username">Username</label>
+                        <Field type="text" name="username" autoComplete="username" />
                         <ErrorMessage name="username" component="div" />
-                        <Field type="password" name="password" />
+                        
+                        <label htmlForm="password">Password</label>
+                        <Field type="password" name="password" autoComplete="new-password" />
                         <ErrorMessage name="password" component="div" />
+                        
+                        <label htmlForm="firstname">First Name</label>
                         <Field type="text" name="firstname" />
                         <ErrorMessage name="firstname" component="div" />
+                        
+                        <label htmlForm="lastname">Last Name</label>
                         <Field type="text" name="lastname" />
                         <ErrorMessage name="lastname" component="div" />
+                        
+                        <label htmlForm="email">Email</label>
                         <Field type="email" name="email" />
                         <ErrorMessage name="email" component="div" />
                         <button type="submit" disabled={isSubmitting}>
-                            Login
+                            Sign Up!
                         </button>
                     </Form>
                 )}

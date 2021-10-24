@@ -23,9 +23,12 @@ const LoginForm = () => {
             >
                 {({ isSubmitting }) => (
                     <Form>
-                        <Field type="text" name="username" />
+                        <label htmlFor="username">Username</label>
+                        <Field type="text" name="username" autoComplete="username" />
                         <ErrorMessage name="username" component="div" />
-                        <Field type="password" name="password" />
+
+                        <label htmlFor="password">Password</label>
+                        <Field type="password" name="password" autoComplete="current-password" />
                         <ErrorMessage name="password" component="div" />
                         <button type="submit" disabled={isSubmitting}>
                             Login
