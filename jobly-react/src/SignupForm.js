@@ -10,6 +10,7 @@ import './SignupForm.css';
 const Signup = () => {
     const { signup } = useContext(UserContext);
     const history = useHistory();
+    let submitError = null;
 
     return (
         <div>
@@ -43,14 +44,17 @@ const Signup = () => {
                 }}
                 onSubmit={async (values, { setSubmitting, resetForm }) => {
                     try {
+                        submitError = null;
                         const res = await JoblyApi.registerUser(values);
                         signup(res.token);
+                        setSubmitting(false);
+                        resetForm();
+                        history.push('/');
                     } catch (e) {
-                        alert(e);
+                        submitError = e;
+                        setSubmitting(false);
+                        resetForm();
                     }
-                    setSubmitting(false);
-                    resetForm();
-                    history.push('/');
                 }}
             >
                 {({ values, errors, touched, handleChange, isSubmitting, initialValues }) => (
@@ -67,6 +71,7 @@ const Signup = () => {
                             helperText={errors.username && touched.username ? `${errors.username}` : undefined}
                             margin="normal"
                             fullWidth
+                            autoComplete="username"
                         />
 
                         <TextField 
@@ -82,6 +87,7 @@ const Signup = () => {
                             helperText={errors.password && touched.password ? `${errors.password}` : undefined}
                             margin="normal"
                             fullWidth
+                            autoComplete="new-password"
                         />
                         
                         <TextField 

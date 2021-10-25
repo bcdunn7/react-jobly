@@ -11,3 +11,7 @@
 .LoginForm button:hover {
     background-color: rgb(192, 97, 192);
 }
+
+.submitError {
+    color: red;
+}
