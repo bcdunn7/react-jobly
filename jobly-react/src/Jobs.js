@@ -28,8 +28,8 @@ const Jobs = () => {
             {isLoading
                 ? <h2>Loading...</h2>
                 : <>
-                    <SearchForm filter={filterJobs}/>
                     <div className="Jobs-list">
+                    <SearchForm filter={filterJobs} searchTerm="Title"/>
                         {jobs.length && !isLoading
                         ? <>{jobs.map(j => <JobCard key={j.id} job={j}/>)}
                         </>

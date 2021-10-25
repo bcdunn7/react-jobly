@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SearchForm.css';
 
-const SearchForm = ({ filter }) => {
+const SearchForm = ({ filter, searchTerm }) => {
     const INITIAL_STATE = {
         name: ''
     }
@@ -23,12 +23,12 @@ const SearchForm = ({ filter }) => {
 
     return (
         <form className="SearchForm" onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">{searchTerm}:</label>
             <input
                 id="name"
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder={searchTerm}
                 value={formData.name}
                 onChange={handleChange}
             />

@@ -29,8 +29,8 @@ const Companies = () => {
             {isLoading 
                 ? <h2>Loading...</h2>
                 : <>
-                    <SearchForm filter={filterCompanies}/>
                     <div className="Companies-List">
+                    <SearchForm filter={filterCompanies} searchTerm="Name"/>
                         {companies.length && !isLoading
                         ? <>{companies.map(c => <CompanyCard key={c.handle} company={c}/>)}</>
                         : <p>Sorry, no companies found :/</p>
