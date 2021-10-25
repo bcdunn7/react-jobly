@@ -3,10 +3,11 @@ import NotFound from './NotFound';
 import Home from './Home';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
-import Comapnies from './Companies';
+import Companies from './Companies';
 import Company from './Company';
 import Jobs from './Jobs';
 import ProfileForm from './ProfileForm';
+import ProtectedRoute from './ProtectedRoute';
 
 const Routes = () => {
     return (
@@ -14,10 +15,18 @@ const Routes = () => {
             <Route exact path='/'><Home/></Route>
             <Route exact path='/login'><LoginForm/></Route>
             <Route exact path='/signup'><SignupForm/></Route>
-            <Route exact path='/companies'><Comapnies/></Route>
-            <Route exact path='/companies/:name'><Company/></Route>
-            <Route exact path='/jobs'><Jobs/></Route>
-            <Route exact path='/profile'><ProfileForm/></Route>
+            <ProtectedRoute path="/companies">
+                <Companies/>
+            </ProtectedRoute>
+            <ProtectedRoute path="/companies/:name">
+                <Company/>
+            </ProtectedRoute>
+            <ProtectedRoute path="/jobs">
+                <Jobs/>
+            </ProtectedRoute>
+            <ProtectedRoute path="/profile">
+                <ProfileForm/>
+            </ProtectedRoute>
             <Route><NotFound/></Route>
         </Switch>
     )

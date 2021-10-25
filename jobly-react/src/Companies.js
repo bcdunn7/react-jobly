@@ -13,6 +13,8 @@ const Companies = () => {
         setCompanies(res);
         setIsLoading(false);
     }
+
+    // get data on mount
     useEffect(() => {
         getCompaniesData();
     }, [])

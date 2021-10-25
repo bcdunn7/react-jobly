@@ -1,7 +1,14 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import JoblyApi from './api';
+import UserContext from './UserContext';
+import { useContext } from 'react';
+import { useHistory } from 'react-router';
 
 const LoginForm = () => {
+    const { login } = useContext(UserContext);
+    const history = useHistory();
+
     return (
         <div>
             <h2>Login to Jobly</h2>
@@ -16,9 +23,17 @@ const LoginForm = () => {
                     }
                     return errors;
                 }}
-                onSubmit={(values, { setSubmitting }) => {
-                    console.log(values)
+                onSubmit={async (values, { setSubmitting, resetForm }) => {
+                    try {
+                        const res = await JoblyApi.loginUser(values);
+                        console.log(res);
+                        login(res.token);
+                    } catch (e) {
+                        alert(e);
+                    }
                     setSubmitting(false);
+                    resetForm();
+                    history.push('/');
                 }}
             >
                 {({ isSubmitting }) => (
