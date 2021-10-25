@@ -1,0 +1,31 @@
+.SearchForm {
+    min-width: 60vw;
+    margin: auto;
+}
+
+.SearchForm input {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgb(155, 37, 155);
+    border-width: 1px;
+    width: 50vw;
+}
+
+.SearchForm input:focus {
+    background-color: rgb(250, 240, 250);
+}
+
+.SearchForm button {
+    background-color: rgb(155, 37, 155);
+    color: white;
+    border-radius: 10px;
+    border: white;
+    height: 37px;
+    width: 70px;
+}
+
+.SearchForm button:hover {
+    cursor: pointer;
+}

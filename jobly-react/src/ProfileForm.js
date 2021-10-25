@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import JoblyApi from './api';
 import UserContext from './UserContext';
 import { useHistory } from 'react-router';
+import { TextField, Button } from '@mui/material';
+import './ProfileForm.css'
 
 const ProfileForm = () => {
     const { user, setUser } = useContext(UserContext);
@@ -44,22 +46,53 @@ const ProfileForm = () => {
                     history.push('/');
                 }}
             >
-                {({ isSubmitting }) => (
-                    <Form>                        
-                        <label htmlFor="firstName">First Name</label>
-                        <Field type="text" name="firstName" />
-                        <ErrorMessage name="firstName" component="div" />
+                {({ values, errors, touched, handleChange, isSubmitting, initialValues }) => (
+                    <Form className="ProfileForm">                        
+                        <TextField 
+                            id="firstName" 
+                            name="firstName" 
+                            label="First Name" 
+                            variant="outlined"
+                            defaultValue={initialValues.firstName} 
+                            onChange={handleChange}
+                            value={values.firstName}
+                            error={errors.firstName && touched.firstName ? true : false}
+                            helperText={errors.firstName && touched.firstName ? `${errors.firstName}` : undefined}
+                            margin="normal"
+                            fullWidth
+                        />
                         
-                        <label htmlFor="lastName">Last Name</label>
-                        <Field type="text" name="lastName" />
-                        <ErrorMessage name="lastName" component="div" />
-                        
-                        <label htmlFor="email">Email</label>
-                        <Field type="email" name="email" />
-                        <ErrorMessage name="email" component="div" />
-                        <button type="submit" disabled={isSubmitting}>
+                        <TextField 
+                            id="lastName" 
+                            name="lastName" 
+                            label="Last Name" 
+                            variant="outlined"
+                            defaultValue={initialValues.lastName}
+                            onChange={handleChange}
+                            value={values.lastName}
+                            error={errors.lastName && touched.lastName ? true : false}
+                            helperText={errors.lastName && touched.lastName ? `${errors.lastName}` : undefined}
+                            margin="normal"
+                            fullWidth 
+                        />
+
+                        <TextField 
+                            id="email" 
+                            name="email" 
+                            label="Email" 
+                            variant="outlined"
+                            defaultValue={initialValues.email}
+                            onChange={handleChange}
+                            value={values.email}
+                            error={errors.email && touched.email ? true : false}
+                            helperText={errors.email && touched.email ? `${errors.email}` : undefined}
+                            margin="normal"
+                            fullWidth
+                        />
+
+                        <Button variant="contained" fullWidth type="submit" disabled={isSubmitting}>
                             Save
-                        </button>
+                        </Button>
                     </Form>
                 )}
             </Formik>

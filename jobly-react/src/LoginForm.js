@@ -1,9 +1,11 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import JoblyApi from './api';
 import UserContext from './UserContext';
 import { useContext } from 'react';
 import { useHistory } from 'react-router';
+import { TextField, Button } from '@mui/material';
+import './LoginForm.css';
 
 const LoginForm = () => {
     const { login } = useContext(UserContext);
@@ -36,18 +38,39 @@ const LoginForm = () => {
                     history.push('/');
                 }}
             >
-                {({ isSubmitting }) => (
-                    <Form>
-                        <label htmlFor="username">Username</label>
-                        <Field type="text" name="username" autoComplete="username" />
-                        <ErrorMessage name="username" component="div" />
+                {({ values, errors, touched, handleChange, isSubmitting, initialValues }) => (
+                    <Form className="LoginForm">
+                        <TextField 
+                            id="username" 
+                            name="username" 
+                            label="Username" 
+                            variant="outlined"
+                            defaultValue={initialValues.username} 
+                            onChange={handleChange}
+                            value={values.username}
+                            error={errors.username && touched.username ? true : false}
+                            helperText={errors.username && touched.username ? `${errors.username}` : undefined}
+                            margin="normal"
+                            fullWidth
+                        />
 
-                        <label htmlFor="password">Password</label>
-                        <Field type="password" name="password" autoComplete="current-password" />
-                        <ErrorMessage name="password" component="div" />
-                        <button type="submit" disabled={isSubmitting}>
+                        <TextField 
+                            id="password" 
+                            type="password"
+                            name="password" 
+                            label="Password" 
+                            variant="outlined"
+                            defaultValue={initialValues.password} 
+                            onChange={handleChange}
+                            value={values.password}
+                            error={errors.password && touched.password ? true : false}
+                            helperText={errors.password && touched.password ? `${errors.password}` : undefined}
+                            margin="normal"
+                            fullWidth
+                        />
+                        <Button variant="contained" fullWidth type="submit" disabled={isSubmitting}>
                             Login
-                        </button>
+                        </Button>
                     </Form>
                 )}
             </Formik>

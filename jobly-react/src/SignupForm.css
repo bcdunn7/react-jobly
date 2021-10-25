@@ -1,0 +1,13 @@
+.SignupForm {
+    width: 70vw;
+    margin: auto;
+}
+
+.SignupForm button {
+    margin-top: 10px;
+    background-color: rgb(155, 37, 155);
+}
+
+.SignupForm button:hover {
+    background-color: rgb(192, 97, 192);
+}
