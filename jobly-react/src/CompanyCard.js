@@ -17,7 +17,7 @@ const CompanyCard = ({ company }) => {
                     avatar={
                         company.logoUrl 
                             ? <img className="CompanyCard-image" src={company.logoUrl} alt="Company logo"/> 
-                            : <Avatar sx={{ bgcolor: colorOptions[Math.floor(Math.random()*colorOptions.length)]}} alt={company.name}>
+                            : <Avatar className="CompanyCard-avatar" sx={{ bgcolor: colorOptions[Math.floor(Math.random()*colorOptions.length)]}} alt={company.name}>
                                 {company.name.slice(0,2)}
                             </Avatar>
                     }
@@ -26,9 +26,9 @@ const CompanyCard = ({ company }) => {
                         <Button color="primary" variant="contained" component={Link} to={`/companies/${company.handle}`}>View Jobs</Button>
                     }
                 />
-                <CardContent>
+                <CardContent className="CompanyCard-cardContent">
                     <p>{company.description}</p>
-                    <p>Size: {company.numEmployees} Employees</p>
+                    <p className="CompanyCard-size"><i>{company.numEmployees} Employees</i></p>
                 </CardContent>
             </Card>
         </ThemeProvider>

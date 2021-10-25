@@ -20,7 +20,7 @@ const Company = () => {
     }, [name])
 
     return (
-        <div>
+        <div className="Company">
             {company
                 ? <>
                     <h2>{company.name}</h2>

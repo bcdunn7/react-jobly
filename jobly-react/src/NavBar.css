@@ -9,6 +9,17 @@
     font-size: x-large;
     font-weight: bold;
     letter-spacing: 1px;
+    color: rgb(155, 37, 155);
+}
+
+.NavBar-Logo-Stack {
+    align-items: baseline;
+    text-align: center;
+}
+
+.NavBar-Logo-Stack div {
+    margin-left: 25px;
+    color: rgb(155, 37, 155);
 }
 
 .NavBar-NavLinks a:hover {

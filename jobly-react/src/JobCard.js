@@ -42,9 +42,9 @@ const JobCard = ({ job }) => {
                         </Button>
                     }
                 />
-                <CardContent>
-                    <p>Salary: {job.salary}</p>
-                    <p>Equity: {job.equity}</p>
+                <CardContent className="JobCard-cardContent">
+                    {job.salary ? <p><i>Salary: {job.salary}</i></p> : null}
+                    {job.equity && job.equity > 0 ? <p><i>Equity: {job.equity}</i></p> : null}
                 </CardContent>
             </Card>
         </ThemeProvider>

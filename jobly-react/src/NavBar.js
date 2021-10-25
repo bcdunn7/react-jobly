@@ -17,11 +17,11 @@ const NavBar = () => {
                     <Stack className="NavBar-Logo-Stack" justifyContent="center" direction="row">
                         <Link to="/">Jobly</Link>
                         {user
-                            ?   <p>Welcome {user.firstName}</p>
+                            ?   <div>Welcome {user.firstName}</div>
                             :   null
                         }
                     </Stack>
-                    <Stack className="NavBar-NavLinks" spacing={2} direction="row">
+                    <Stack className="NavBar-NavLinks" spacing={2} direction={{ xs:'column', md: 'row'}}>
                         {!user
                             ? <>
                                 <Button color="primary" variant="text" component={NavLink} to="/login">

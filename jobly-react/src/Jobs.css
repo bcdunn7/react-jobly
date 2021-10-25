@@ -1,4 +1,18 @@
 .Jobs-list {
-    width: 60vw;
+    width: 90vw;
     margin: auto;
+}
+
+@media (min-width: 481px) {
+    .Jobs-list {
+        width: 70vw;
+        margin: auto;
+    }
+}
+
+@media (min-width: 1025px) {
+    .Jobs-list {
+        width: 50vw;
+        margin: auto;
+    }
 }

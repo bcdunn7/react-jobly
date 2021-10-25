@@ -1,3 +1,11 @@
 .JobCard {
     margin: 20px;
 }
+
+.JobCard-header {
+    text-align: left;
+}
+
+.JobCard-cardContent {
+    color: rgb(110, 110, 110);
+}

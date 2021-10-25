@@ -1,4 +1,10 @@
-.Company-jobs-list {
-    width: 60vw;
+.Company {
     margin: auto;
+}
+
+@media (min-width: 481px) {
+    .Company {
+        width: 65vh;
+        margin: auto;
+    }
 }

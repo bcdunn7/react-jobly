@@ -5,4 +5,17 @@
 .CompanyCard-image {
     max-height: 40px;
     max-width: 40px;
+    margin-right: 20px;
+}
+
+.CompanyCard-avatar {
+    margin-right: 20px;
+}
+
+.CompanyCard-header {
+    text-align: left;
+}
+
+.CompanyCard-size {
+    color: rgb(110, 110, 110);
 }

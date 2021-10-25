@@ -29,7 +29,7 @@ const Companies = () => {
             {isLoading 
                 ? <h2>Loading...</h2>
                 : <>
-                    <SearchForm filterCompanies={filterCompanies}/>
+                    <SearchForm filter={filterCompanies}/>
                     <div className="Companies-List">
                         {companies.length && !isLoading
                         ? <>{companies.map(c => <CompanyCard key={c.handle} company={c}/>)}</>

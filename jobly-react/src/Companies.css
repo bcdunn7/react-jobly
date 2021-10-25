@@ -1,4 +1,18 @@
 .Companies-List {
-    width: 60vw;
+    width: 94vw;
     margin: auto;
+}
+
+@media (min-width: 481px) {
+    .Companies-List {
+        width: 80vw;
+        margin: auto;
+    }
+}
+
+@media (min-width: 1025px) {
+    .Companies-List {
+        width: 60vw;
+        margin: auto;
+    }
 }
