@@ -7,12 +7,14 @@ import UserContext from './UserContext';
 import { useEffect } from 'react';
 import JoblyApi from './api';
 import jwt from 'jsonwebtoken';
+import { CircularProgress } from '@mui/material';
 
 function App() {
 
 	const [token, setToken] = useState(null);
 	const [user, setUser] = useState(null);
 	const [appliedToIds, setAppliedToIds] = useState(new Set());
+	const [isLoading, setIsLoading] = useState(true);
 
 	// save token to localStorage and state
 	const saveUserToken = (token) => {
@@ -53,6 +55,7 @@ function App() {
 				const res = await JoblyApi.getUser(username);
 				setUser(res.user);
 				setAppliedToIds(new Set([...res.user.applications]));
+				setIsLoading(false);
 			} catch (e) {
 				console.error(e);
 			}
@@ -63,16 +66,21 @@ function App() {
 	}, [token])
 
 	return (
-		<div className="App">
-			<UserContext.Provider value={{ login, signup, logout, setUser, user, appliedToIds, setAppliedToIds }}>
-				<BrowserRouter>
-					<NavBar/>
-					<div className="App-content-div">
-						<Routes/>
-					</div>
-				</BrowserRouter>
-			</UserContext.Provider>
-		</div>
+		<>
+			{isLoading
+				? <div className="loading-div"><CircularProgress/></div>
+				: <div className="App">
+					<UserContext.Provider value={{ login, signup, logout, setUser, user, appliedToIds, setAppliedToIds }}>
+						<BrowserRouter>
+							<NavBar/>
+							<div className="App-content-div">
+								<Routes/>
+							</div>
+						</BrowserRouter>
+					</UserContext.Provider>
+				</div>
+			}
+		</>
 	);
 }
 
