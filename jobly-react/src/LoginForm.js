@@ -48,7 +48,6 @@ const LoginForm = () => {
                             name="username" 
                             label="Username" 
                             variant="outlined"
-                            defaultValue={initialValues.username} 
                             onChange={handleChange}
                             value={values.username}
                             error={errors.username && touched.username ? true : false}
@@ -64,7 +63,6 @@ const LoginForm = () => {
                             name="password" 
                             label="Password" 
                             variant="outlined"
-                            defaultValue={initialValues.password} 
                             onChange={handleChange}
                             value={values.password}
                             error={errors.password && touched.password ? true : false}

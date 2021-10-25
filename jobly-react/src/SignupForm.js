@@ -64,7 +64,6 @@ const Signup = () => {
                             name="username" 
                             label="Username" 
                             variant="outlined"
-                            defaultValue={initialValues.username} 
                             onChange={handleChange}
                             value={values.username}
                             error={errors.username && touched.username ? true : false}
@@ -80,7 +79,6 @@ const Signup = () => {
                             name="password" 
                             label="Password" 
                             variant="outlined"
-                            defaultValue={initialValues.password} 
                             onChange={handleChange}
                             value={values.password}
                             error={errors.password && touched.password ? true : false}
@@ -95,7 +93,6 @@ const Signup = () => {
                             name="firstName" 
                             label="First Name" 
                             variant="outlined"
-                            defaultValue={initialValues.firstName} 
                             onChange={handleChange}
                             value={values.firstName}
                             error={errors.firstName && touched.firstName ? true : false}
@@ -109,7 +106,6 @@ const Signup = () => {
                             name="lastName" 
                             label="Last Name" 
                             variant="outlined"
-                            defaultValue={initialValues.lastName} 
                             onChange={handleChange}
                             value={values.lastName}
                             error={errors.lastName && touched.lastName ? true : false}
@@ -123,7 +119,6 @@ const Signup = () => {
                             name="email" 
                             label="Email" 
                             variant="outlined"
-                            defaultValue={initialValues.email} 
                             onChange={handleChange}
                             value={values.email}
                             error={errors.email && touched.email ? true : false}
@@ -132,6 +127,7 @@ const Signup = () => {
                             fullWidth
                         />
                     
+                        {submitError ? <p className="submitError">{submitError}</p> : null}
                         <Button variant="contained" fullWidth type="submit" disabled={isSubmitting}>
                             Sign Up!
                         </Button>
