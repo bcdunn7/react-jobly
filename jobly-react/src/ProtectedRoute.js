@@ -2,15 +2,15 @@ import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import UserContext from './UserContext';
 
-const ProtectedRoute = ({ children, path }) => {
+const ProtectedRoute = ({ exact, path, children }) => {
     const { user } = useContext(UserContext);
 
     return (
         <>
             {user
-                ? <Route exact path={path}>
+                ? <Route exact={exact} path={path}>
                     {children}
-                    </Route>
+                </Route>
                 : <Redirect to="/login" />
             }
         </>

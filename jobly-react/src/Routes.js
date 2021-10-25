@@ -15,16 +15,16 @@ const Routes = () => {
             <Route exact path='/'><Home/></Route>
             <Route exact path='/login'><LoginForm/></Route>
             <Route exact path='/signup'><SignupForm/></Route>
-            <ProtectedRoute path="/companies">
+            <ProtectedRoute exact path="/companies">
                 <Companies/>
             </ProtectedRoute>
-            <ProtectedRoute path="/companies/:name">
+            <ProtectedRoute exact path="/companies/:name">
                 <Company/>
             </ProtectedRoute>
-            <ProtectedRoute path="/jobs">
+            <ProtectedRoute exact path="/jobs">
                 <Jobs/>
             </ProtectedRoute>
-            <ProtectedRoute path="/profile">
+            <ProtectedRoute exact path="/profile">
                 <ProfileForm/>
             </ProtectedRoute>
             <Route><NotFound/></Route>

@@ -12,6 +12,7 @@ function App() {
 
 	const [token, setToken] = useState(null);
 	const [user, setUser] = useState(null);
+	const [appliedToIds, setAppliedToIds] = useState(new Set());
 
 	// save token to localStorage and state
 	const saveUserToken = (token) => {
@@ -50,6 +51,7 @@ function App() {
 				JoblyApi.token = token;
 				const res = await JoblyApi.getUser(username);
 				setUser(res.user);
+				setAppliedToIds(new Set([...res.user.applications]));
 			} catch (e) {
 				console.error(e);
 			}
@@ -75,7 +77,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<UserContext.Provider value={{ login, signup, logout, setUser, user }}>
+			<UserContext.Provider value={{ login, signup, logout, setUser, user, appliedToIds, setAppliedToIds }}>
 				<BrowserRouter>
 					<NavBar/>
 					<div className="App-content-div">
