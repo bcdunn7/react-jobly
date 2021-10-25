@@ -53,7 +53,6 @@ const ProfileForm = () => {
                             name="firstName" 
                             label="First Name" 
                             variant="outlined"
-                            defaultValue={initialValues.firstName} 
                             onChange={handleChange}
                             value={values.firstName}
                             error={errors.firstName && touched.firstName ? true : false}
@@ -67,7 +66,6 @@ const ProfileForm = () => {
                             name="lastName" 
                             label="Last Name" 
                             variant="outlined"
-                            defaultValue={initialValues.lastName}
                             onChange={handleChange}
                             value={values.lastName}
                             error={errors.lastName && touched.lastName ? true : false}
@@ -81,7 +79,6 @@ const ProfileForm = () => {
                             name="email" 
                             label="Email" 
                             variant="outlined"
-                            defaultValue={initialValues.email}
                             onChange={handleChange}
                             value={values.email}
                             error={errors.email && touched.email ? true : false}

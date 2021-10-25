@@ -23,7 +23,7 @@ function App() {
 	// on mount, get token from loaclstorage
 	useEffect(() => {
 		async function checkLocalStorage() {
-			const token = await localStorage.getItem('token');
+			const token = localStorage.getItem('token');
 			setToken(token);
 		}
 		checkLocalStorage();
@@ -43,6 +43,7 @@ function App() {
 		setUser(null);
 	}
 
+	// when token changes, load user data
 	useEffect(() => {
 		async function getUserData() {
 			const { username } = jwt.decode(token);
@@ -60,20 +61,6 @@ function App() {
 			getUserData();
 		}
 	}, [token])
-
-	// TODO: user state here
-	/** TODO:
-	 * 
-	 * user state here
-	 * 
-	 * pass down or maybe react context? user state to login/signup and whatever else will need it
-	 * ?jobs because of apps
-	 * 
-	 * probably write hook for auth to pass to login and signup (or two)
-	 * 
-	 * if user, display certain nav things, if not display others
-	 *
-	 *  */ 
 
 	return (
 		<div className="App">
