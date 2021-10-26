@@ -22,15 +22,6 @@ function App() {
 		setToken(token);
 	}
 
-	// on mount, get token from loaclstorage
-	useEffect(() => {
-		function checkLocalStorage() {
-			const token = localStorage.getItem('token');
-			setToken(token);
-		}
-		checkLocalStorage();
-	}, [])
-
 	const login = (token) => {
 		saveUserToken(token);
 	}
@@ -48,6 +39,8 @@ function App() {
 	// when token changes, load user data
 	useEffect(() => {
 		async function getUserData() {
+			const token = localStorage.getItem('token');
+			setToken(token);
 			if (token) {
 				try {
 					const { username } = jwt.decode(token);
