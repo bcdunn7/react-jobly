@@ -55,7 +55,6 @@ function App() {
 				const res = await JoblyApi.getUser(username);
 				setUser(res.user);
 				setAppliedToIds(new Set([...res.user.applications]));
-				setIsLoading(false);
 			} catch (e) {
 				console.error(e);
 			}
@@ -63,6 +62,7 @@ function App() {
 		if (token) {
 			getUserData();
 		}
+		setIsLoading(false);
 	}, [token])
 
 	return (
