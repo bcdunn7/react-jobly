@@ -19,10 +19,23 @@ const mockCompany = {
     ]
 }
 
-test('it renders without crashing', () => {
-    render(
-        <MemoryRouter>
-            <CompanyCard company={mockCompany}/>
-        </MemoryRouter>
-    );
-});
+describe('CompanyCard', () => {
+    test('it renders without crashing', () => {
+        render(
+            <MemoryRouter>
+                <CompanyCard company={mockCompany}/>
+            </MemoryRouter>
+        );
+    });
+
+    test('it shows avatar if no image', () => {
+        const { getByText } = render(
+            <MemoryRouter>
+                <CompanyCard company={mockCompany} />
+            </MemoryRouter>
+        )
+
+        expect(getByText('Co')).toBeInTheDocument();
+    })
+})
+
